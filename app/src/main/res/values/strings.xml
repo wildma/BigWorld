@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">BigWorld</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="hotsjpot_news">热点新闻</string>
+    <string name="beautiful_picture">每日美图</string>
+    <string name="gitHub">GitHub</string>
+    <string name="option">选项</string>
+    <string name="nocturnal_pattern">夜间模式</string>
+    <string name="setting">设置</string>
+    <string name="check_network">请检查网络</string>
 </resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_hotsjpot_news"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/hotsjpot_news"/>
+        <item
+            android:id="@+id/nav_beautiful_picture"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/beautiful_picture"/>
+        <item
+            android:id="@+id/nav_gitHub"
+            android:icon="@drawable/ic_github"
+            android:title="@string/gitHub"/>
+    </group>
+
+    <item android:title="@string/option">
+        <menu>
+            <item
+                android:id="@+id/nav_nocturnal_pattern"
+                android:icon="@drawable/ic_skin_colour"
+                android:title="@string/nocturnal_pattern"/>
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/setting"/>
+        </menu>
+    </item>
+
+</menu>
