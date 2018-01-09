@@ -1,7 +1,5 @@
 package com.wildma.bigworld.presenter.implPresenter;
 
-import android.content.Context;
-
 import com.wildma.bigworld.api.ApiManage;
 import com.wildma.bigworld.bean.HotspotNewsItemBean;
 import com.wildma.bigworld.bean.HotspotNewsListBean;
@@ -23,7 +21,7 @@ public class HotspotNewsPresenterImpl extends BasePresenterImpl implements IHots
 
     private IHotspotNewsFragment mIHotspotNewsFragment;
 
-    public HotspotNewsPresenterImpl(Context context, IHotspotNewsFragment IHotspotNewsFragment) {
+    public HotspotNewsPresenterImpl(IHotspotNewsFragment IHotspotNewsFragment) {
         mIHotspotNewsFragment = IHotspotNewsFragment;
     }
 

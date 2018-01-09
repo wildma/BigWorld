@@ -9,11 +9,19 @@ import android.widget.Toast;
 import com.wildma.bigworld.R;
 import com.wildma.bigworld.adapter.HotspotNewsAdapter;
 import com.wildma.bigworld.bean.HotspotNewsListBean;
+import com.wildma.bigworld.dagger2.component.DaggerHotspotNewsFragmentComponent;
+import com.wildma.bigworld.dagger2.module.HotspotNewsFragmentModule;
 import com.wildma.bigworld.presenter.implPresenter.HotspotNewsPresenterImpl;
 import com.wildma.bigworld.presenter.implView.IHotspotNewsFragment;
 import com.wildma.bigworld.widget.DividerItemDecoration;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
+
+//import com.wildma.bigworld.dagger2.component.DaggerUserInfoActivityComponent;
+//import com.wildma.bigworld.dagger2.module.UserInfoActivityModule;
+
 
 /**
  * Author       wildma
@@ -22,11 +30,12 @@ import butterknife.BindView;
  */
 public class HotspotNewsFragment extends BaseFragment implements IHotspotNewsFragment {
 
+    @Inject
     HotspotNewsPresenterImpl mHotspotNewsPresenter;
     @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+    RecyclerView             mRecyclerView;
     @BindView(R.id.progressBar)
-    ProgressBar  mProgressBar;
+    ProgressBar              mProgressBar;
 
     boolean             loading;
     HotspotNewsAdapter  mHotspotNewsAdapter;
@@ -41,9 +50,16 @@ public class HotspotNewsFragment extends BaseFragment implements IHotspotNewsFra
     @Override
     protected void initView() {
         super.initView();
-        mHotspotNewsPresenter = new HotspotNewsPresenterImpl(getContext(), this);
-        mHotspotNewsAdapter = new HotspotNewsAdapter(getContext());
 
+        //使用Dagger2的方式实例化HotspotNewsPresenterImpl
+        //将Module与目标类联系起来
+        DaggerHotspotNewsFragmentComponent
+                .builder()
+                .hotspotNewsFragmentModule(new HotspotNewsFragmentModule(this))
+                .build()
+                .inject(this);
+
+        mHotspotNewsAdapter = new HotspotNewsAdapter(getContext());
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST));
